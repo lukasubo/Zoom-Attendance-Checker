@@ -16,13 +16,9 @@ def mergeIntoList(key, row, list):  #This function checks is a student is alread
     return list #Function returns the list with the row integrated into it.
 
 input_file = csv.DictReader(open(sys.argv[1], encoding='utf-8-sig')) #Opens the Zoom usage report.
-student_file = csv.DictReader(open('studentlist.csv', encoding='utf-8-sig')) #Opens the list of student emails for the section.
+student_list = list(csv.DictReader(open('studentlist.csv', encoding='utf-8-sig'))) #Opens the list of student emails for the section and casts it to a list of dicts.
 
 list = [] #Initializes an empty list to fill with the usage report data.
-student_list = []
-
-for row in student_file: #Iterates through the student emails.
-    student_list.append(row)
 
 for row in input_file: #Reads the Zoom report.
     row['Join Time'] = datetime.datetime.strptime(row['Join Time'], '%m/%d/%Y %H:%M:%S %p') #Convert to Python date.

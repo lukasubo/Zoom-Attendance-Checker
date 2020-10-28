@@ -26,7 +26,6 @@ for row in student_file: #Iterates through the student emails.
 
 for row in input_file: #Reads the Zoom report.
     row['Join Time'] = datetime.datetime.strptime(row['Join Time'], '%m/%d/%Y %H:%M:%S %p') #Convert to Python date.
-    date = row['Join Time'] #Record 'date' to get meeting date.
     row['Leave Time'] = datetime.datetime.strptime(row['Leave Time'], '%m/%d/%Y %H:%M:%S %p') #Convert to Python date.
     row['Duration (Minutes)'] = int(row['Duration (Minutes)']) #Convert to integer.
     if row['User Email'] == '': #For empty emails (phone-in).
@@ -40,6 +39,7 @@ for row in input_file: #Reads the Zoom report.
 print('') #newline to differentiate the output visually from the terminal prompt.
 
 for val in list:
+    date = val['Join Time'] #Record 'date' to get meeting date.
     trip = False #Stores whether a check was tripped for current val.
     if val['Join Time'] > datetime.datetime(date.year, date.month, date.day, int(sys.argv[2]), 25):
         print(val['Name (Original Name)'], 'joined late.', datetime.datetime.strftime(val['Join Time'], '%m/%d/%Y %H:%M:%S %p'))
@@ -53,6 +53,6 @@ for val in list:
     if trip: #Adds a newline if a check was tripped, to space out individual students.
         print('')
 
-for row in student_list: #Iterates through the student emails.
-    if not any(dict['User Email'] == row['User Email'] for dict in list): #Checks if the student was absent.
-        print(row['User Email'], 'was absent.\n') #Reports absent student.
+for val in student_list: #Iterates through the student emails.
+    if not any(dict['User Email'] == val['User Email'] for dict in list): #Checks if the student was absent.
+        print(val['Name (Original Name)'], 'was absent.\n') #Reports absent student.

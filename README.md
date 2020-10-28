@@ -11,7 +11,8 @@ This script requires Python 3, but uses only the Python standard library. No oth
 
 # USAGE
 1. Replace the dummy emails in 'studentlist.csv' with a list of student emails for your lab section. This will be used to check for absent students and excluded non-students from checks.
-2. Run the below command.
+2. Replace the dummy names in 'studentlist.csv'. These will be used to display the absent students - but not to check.
+3. Run the below command.
 
 `python3 attendance.py 'zoomreport.csv' S E`
 

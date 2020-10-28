@@ -16,7 +16,7 @@ def mergeIntoList(key, row, list):  #This function checks is a student is alread
     return list #Function returns the list with the row integrated into it.
 
 input_file = csv.DictReader(open(sys.argv[1], encoding='utf-8-sig')) #Opens the Zoom usage report.
-student_file = csv.DictReader(open(sys.argv[2], encoding='utf-8-sig')) #Opens the list of student emails for the section.
+student_file = csv.DictReader(open('studentlist.csv', encoding='utf-8-sig')) #Opens the list of student emails for the section.
 
 list = [] #Initializes an empty list to fill with the usage report data.
 student_list = []
@@ -41,10 +41,10 @@ print('') #newline to differentiate the output visually from the terminal prompt
 
 for val in list:
     trip = False #Stores whether a check was tripped for current val.
-    if val['Join Time'] > datetime.datetime(date.year, date.month, date.day, int(sys.argv[3]), 25):
+    if val['Join Time'] > datetime.datetime(date.year, date.month, date.day, int(sys.argv[2]), 25):
         print(val['Name (Original Name)'], 'joined late.', datetime.datetime.strftime(val['Join Time'], '%m/%d/%Y %H:%M:%S %p'))
         trip = True
-    if val['Leave Time'] < datetime.datetime(date.year, date.month, date.day, int(sys.argv[4])-1, 45):
+    if val['Leave Time'] < datetime.datetime(date.year, date.month, date.day, int(sys.argv[3])-1, 45):
         print(val['Name (Original Name)'], 'left early.', datetime.datetime.strftime(val['Leave Time'], '%m/%d/%Y %H:%M:%S %p'))
         trip = True
     if val['Duration (Minutes)'] < (int(sys.argv[4]) - int(sys.argv[3]))*60-30:

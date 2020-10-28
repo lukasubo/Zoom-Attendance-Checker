@@ -16,6 +16,6 @@ This script requires Python 3, but uses only the Python standard library. No oth
 `python3 attendance.py 'zoomreport.csv' S E`
 
 Where:
-- S = The start time, in 24H format (i.e. 8 AM = 8, 2 PM = 14)
-- F = The end time, in 24H format
+- S = The start time, in 24H format (i.e. 8 AM = 8, 2 PM = 14).
+- E = The end time, in 24H format.
 - zoomreport.csv = The usage report from Zoom. Do NOT check any of the checkboxes, just download the default CSV report.

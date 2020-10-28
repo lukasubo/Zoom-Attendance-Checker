@@ -19,3 +19,6 @@ Where:
 - S = The start time, in 24H format (i.e. 8 AM = 8, 2 PM = 14).
 - E = The end time, in 24H format.
 - zoomreport.csv = The usage report from Zoom. Do NOT check any of the checkboxes, just download the default CSV report.
+
+# DOWNLOAD LINK
+https://github.com/lukasubo/Zoom-Attendance-Checker/archive/main.zip

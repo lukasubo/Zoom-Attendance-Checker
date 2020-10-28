@@ -10,10 +10,12 @@ This script requires Python 3, but uses only the Python standard library. No oth
 
 
 # USAGE
-`python3 attendance.py 'zoomreport.csv' 'studentlist.csv' S E`
+1. Replace the dummy emails in 'studentlist.csv' with a list of student emails for your lab section. This will be used to check for absent students and excluded non-students from checks.
+2. Run the below command.
+
+`python3 attendance.py 'zoomreport.csv' S E`
 
 Where:
 - S = The start time, in 24H format (i.e. 8 AM = 8, 2 PM = 14)
 - F = The end time, in 24H format
 - zoomreport.csv = The usage report from Zoom. Do NOT check any of the checkboxes, just download the default CSV report.
-- studentlist.csv = Pre-created next to the script. Replace the dummy emails with a list of student emails for your lab section.

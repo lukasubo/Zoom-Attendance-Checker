@@ -1,12 +1,12 @@
 # PURPOSE
-This python script checks your Zoom lab's attendance with the following checks:
+This Python script performs the following checks on your Zoom meeting usage report:
 - Were students present in the first 15 minutes after the 10 minute grace period?
 - Were students present in the last 15 minutes?
 - Were students present for the time in between (i.e. how long spent in the lab)?
 
 
 # REQUIREMENTS
-This script requires Python 3, but uses only libraries that ship with Python by default.
+This script requires Python 3, but uses only the Python standard library. No other packages are needed.
 
 
 # USAGE

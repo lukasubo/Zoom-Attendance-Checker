@@ -4,6 +4,7 @@ This Python script performs the following checks on your Zoom meeting usage repo
 - Were students present in the last 15 minutes?
 - Were students present for the time in between (i.e. how long spent in the lab)?
 
+This only works for classes that start on-the-hour.
 
 # REQUIREMENTS
 This script requires Python 3, but uses only the Python standard library. No other packages are needed.

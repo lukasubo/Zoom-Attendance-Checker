@@ -42,7 +42,7 @@ for val in list:
     if val['Leave Time'] < datetime.datetime(date.year, date.month, date.day, int(sys.argv[3])-1, 45):
         print(val['Name (Original Name)'], 'left early.', datetime.datetime.strftime(val['Leave Time'], '%m/%d/%Y %H:%M:%S %p'))
         trip = True
-    if val['Duration (Minutes)'] < (int(sys.argv[3]) - int(sys.argv[2]))*60-30:
+    if val['Duration (Minutes)'] < (int(sys.argv[3]) - int(sys.argv[2]))*60-40:
         print(val['Name (Original Name)'], 'was present for only', val['Duration (Minutes)'], 'minutes.')
         trip = True
     if not (any(dict['User Email'] == val['User Email'] for dict in student_list)):

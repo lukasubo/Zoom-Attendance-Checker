@@ -21,8 +21,8 @@ student_list = list(csv.DictReader(open('studentlist.csv', encoding='utf-8-sig')
 list = [] #Initializes an empty list to fill with the usage report data.
 
 for row in input_file: #Reads the Zoom report.
-    row['Join Time'] = datetime.datetime.strptime(row['Join Time'], '%m/%d/%Y %H:%M:%S %p') #Convert to Python date.
-    row['Leave Time'] = datetime.datetime.strptime(row['Leave Time'], '%m/%d/%Y %H:%M:%S %p') #Convert to Python date.
+    row['Join Time'] = datetime.datetime.strptime(row['Join Time'], '%m/%d/%Y %I:%M:%S %p') #Convert to Python date.
+    row['Leave Time'] = datetime.datetime.strptime(row['Leave Time'], '%m/%d/%Y %I:%M:%S %p') #Convert to Python date.
     row['Duration (Minutes)'] = int(row['Duration (Minutes)']) #Convert to integer.
     if row['User Email'] == '': #For empty emails (phone-in).
         list = mergeIntoList('Name (Original Name)', row, list) #Merge by user name (phone number).

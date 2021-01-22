@@ -27,8 +27,7 @@ for row in input_file: #Reads the Zoom report.
     if row['User Email'] == '': #For empty emails (phone-in).
         list = mergeIntoList('Name (Original Name)', row, list) #Merge by user name (phone number).
     else:
-        if any(dict['User Email'] == row['User Email'] for dict in student_list): #Proceeds only if the student is in the student list.
-            list = mergeIntoList('User Email', row, list) #Merge by email.
+        list = mergeIntoList('User Email', row, list) #Merge by email.
     #The above if-else is needed instead of just always merging by user name,
     #because some students change their name mid-meeting when dropping and re-joining.
 
@@ -45,6 +44,9 @@ for val in list:
         trip = True
     if val['Duration (Minutes)'] < (int(sys.argv[3]) - int(sys.argv[2]))*60-30:
         print(val['Name (Original Name)'], 'was present for only', val['Duration (Minutes)'], 'minutes.')
+        trip = True
+    if not (any(dict['User Email'] == val['User Email'] for dict in student_list)):
+        print(val['Name (Original Name)'], "is present, but not in the student list.")
         trip = True
     if trip: #Adds a newline if a check was tripped, to space out individual students.
         print('')

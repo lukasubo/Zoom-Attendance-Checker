@@ -14,6 +14,10 @@ This script requires Python 3, but uses only the Python standard library. No oth
 2. Replace the dummy names in 'studentlist.csv'. These will be used to display the absent students - but not to check.
 3. Run the below command.
 
+`python attendance.py 'zoomreport.csv' S E`
+
+If the above does not work, try:
+
 `python3 attendance.py 'zoomreport.csv' S E`
 
 Where:

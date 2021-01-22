@@ -36,16 +36,16 @@ print('') #newline to differentiate the output visually from the terminal prompt
 for val in list:
     date = val['Join Time'] #Record 'date' to get meeting date.
     trip = False #Stores whether a check was tripped for current val.
-    if val['Join Time'] > datetime.datetime(date.year, date.month, date.day, int(sys.argv[2]), 25):
+    if val['Join Time'] > datetime.datetime(date.year, date.month, date.day, int(sys.argv[2]), 25): #Checks for joining late.
         print(val['Name (Original Name)'], 'joined late.', datetime.datetime.strftime(val['Join Time'], '%m/%d/%Y %H:%M:%S %p'))
         trip = True
-    if val['Leave Time'] < datetime.datetime(date.year, date.month, date.day, int(sys.argv[3])-1, 45):
+    if val['Leave Time'] < datetime.datetime(date.year, date.month, date.day, int(sys.argv[3])-1, 45): #Checks for leaving early.
         print(val['Name (Original Name)'], 'left early.', datetime.datetime.strftime(val['Leave Time'], '%m/%d/%Y %H:%M:%S %p'))
         trip = True
-    if val['Duration (Minutes)'] < (int(sys.argv[3]) - int(sys.argv[2]))*60-40:
+    if val['Duration (Minutes)'] < (int(sys.argv[3]) - int(sys.argv[2]))*60-40: #Checks for being present less than start time - end time - 10 minute grace period - 2 * 15 minute allowable late/early period.
         print(val['Name (Original Name)'], 'was present for only', val['Duration (Minutes)'], 'minutes.')
         trip = True
-    if not (any(dict['User Email'] == val['User Email'] for dict in student_list)):
+    if not (any(dict['User Email'] == val['User Email'] for dict in student_list)): #Checks for students present but not in the student list.
         print(val['Name (Original Name)'], "is present, but not in the student list.")
         trip = True
     if trip: #Adds a newline if a check was tripped, to space out individual students.
